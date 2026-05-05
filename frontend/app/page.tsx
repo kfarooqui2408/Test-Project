@@ -22,7 +22,7 @@ import {
   RefreshCw,
   Search,
   ShieldCheck,
-  UploadCloud,
+  Upload,
   UserPlus,
   X,
 } from "lucide-react";
@@ -115,7 +115,7 @@ function UploadBox({ title, state = "default" }) {
     >
       <div className="flex items-center gap-3">
         <div className={cn("rounded-xl p-2", uploaded ? "bg-green-100 text-green-700" : "bg-white text-blue-700")}>
-          {uploaded ? <Check className="h-5 w-5" /> : <UploadCloud className="h-5 w-5" />}
+          {uploaded ? <Check className="h-5 w-5" /> : <Upload className="h-5 w-5" />}
         </div>
         <div>
           <p className="text-sm font-semibold text-slate-900">{title}</p>
