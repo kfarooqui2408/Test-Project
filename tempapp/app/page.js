@@ -126,17 +126,145 @@ export default function Page() {
         )}
 
         {screen === "register" && (
-          <div>
-            <h2>Register</h2>
-            <input placeholder="Full Name" />
-            <br />
-            <br />
-            <input placeholder="CNIC" />
-            <br />
-            <br />
-            <button onClick={() => setScreen("dashboard")}>Submit</button>
+  <div
+    style={{
+      maxWidth: 900,
+      margin: "0 auto",
+      background: "white",
+      borderRadius: 24,
+      padding: 32,
+      border: "1px solid #e5e7eb",
+      boxShadow: "0 10px 30px rgba(15,23,42,0.06)",
+    }}
+  >
+    <h2 style={{ fontSize: 30, margin: 0 }}>Create Applicant Account</h2>
+    <p style={{ color: "#6b7280", marginTop: 8 }}>
+      Identity verification is mandatory before payment and appointment booking.
+    </p>
+
+    <div
+      style={{
+        display: "grid",
+        gridTemplateColumns: "repeat(3, 1fr)",
+        gap: 12,
+        marginTop: 24,
+        marginBottom: 32,
+      }}
+    >
+      {["Account", "Verification", "Complete"].map((step, index) => (
+        <div
+          key={step}
+          style={{
+            padding: 14,
+            borderRadius: 14,
+            background: index === 0 ? "#dbeafe" : "#f3f4f6",
+            color: index === 0 ? "#1d4ed8" : "#6b7280",
+            fontWeight: 700,
+            textAlign: "center",
+          }}
+        >
+          {index + 1}. {step}
+        </div>
+      ))}
+    </div>
+
+    <div
+      style={{
+        display: "grid",
+        gridTemplateColumns: "1fr 1fr",
+        gap: 20,
+      }}
+    >
+      {[
+        ["Full Name", "As printed on passport"],
+        ["CNIC Number", "XXXXX-XXXXXXX-X"],
+        ["Passport Number", "Passport number"],
+        ["Mobile Number", "+92 300 0000000"],
+        ["Email Address", "applicant@email.com"],
+        ["Residential Address", "House, street, city"],
+      ].map(([label, placeholder]) => (
+        <label key={label} style={{ display: "block" }}>
+          <span style={{ display: "block", fontWeight: 700, marginBottom: 8 }}>
+            {label}
+          </span>
+          <input
+            placeholder={placeholder}
+            style={{
+              width: "100%",
+              padding: 14,
+              borderRadius: 12,
+              border: "1px solid #d1d5db",
+              fontSize: 15,
+              boxSizing: "border-box",
+            }}
+          />
+        </label>
+      ))}
+    </div>
+
+    <h3 style={{ marginTop: 32 }}>Required Documents</h3>
+
+    <div
+      style={{
+        display: "grid",
+        gridTemplateColumns: "repeat(3, 1fr)",
+        gap: 16,
+        marginTop: 16,
+      }}
+    >
+      {["CNIC Front", "CNIC Back", "Passport Scan"].map((doc) => (
+        <div
+          key={doc}
+          style={{
+            border: "2px dashed #bfdbfe",
+            background: "#eff6ff",
+            borderRadius: 18,
+            padding: 22,
+            textAlign: "center",
+            color: "#1d4ed8",
+            fontWeight: 700,
+          }}
+        >
+          Upload {doc}
+          <div style={{ fontSize: 12, color: "#6b7280", marginTop: 8 }}>
+            PDF / JPG / PNG up to 5MB
           </div>
-        )}
+        </div>
+      ))}
+    </div>
+
+    <div
+      style={{
+        marginTop: 28,
+        background: "#fffbeb",
+        border: "1px solid #fde68a",
+        color: "#92400e",
+        padding: 16,
+        borderRadius: 14,
+      }}
+    >
+      CNIC and Passport Number will be locked after OTP verification.
+    </div>
+
+    <div style={{ marginTop: 28, display: "flex", justifyContent: "flex-end" }}>
+      <button
+        onClick={() => setScreen("dashboard")}
+        style={{
+          padding: "14px 24px",
+          background: "#1D4ED8",
+          color: "white",
+          border: "none",
+          borderRadius: 12,
+          fontSize: 16,
+          fontWeight: 700,
+          cursor: "pointer",
+        }}
+      >
+        Submit & Continue
+      </button>
+    </div>
+  </div>
+)}
 
         {screen === "dashboard" && (
           <div>
